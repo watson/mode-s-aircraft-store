@@ -1,6 +1,6 @@
 {
   "name": "mode-s-aircraft-store",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "A utility library for keeping track of active aircrafts and their position based on their Mode S messages",
   "main": "index.js",
   "directories": {
@@ -37,5 +37,9 @@
   "bugs": {
     "url": "https://github.com/watson/mode-s-aircraft-store/issues"
   },
-  "homepage": "https://github.com/watson/mode-s-aircraft-store#readme"
+  "homepage": "https://github.com/watson/mode-s-aircraft-store#readme",
+  "coordinates": [
+    55.777452,
+    12.589705
+  ]
 }
