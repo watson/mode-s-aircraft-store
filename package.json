@@ -1,0 +1,41 @@
+{
+  "name": "mode-s-aircraft-store",
+  "version": "0.0.0",
+  "description": "A utility library for keeping track of active aircrafts and their position based on their Mode S messages",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "mode-s-decoder": "^1.0.0",
+    "standard": "^10.0.3",
+    "tape": "^4.8.0"
+  },
+  "scripts": {
+    "test": "standard && node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/watson/mode-s-aircraft-store.git"
+  },
+  "keywords": [
+    "modes",
+    "mode-s",
+    "decode",
+    "decoder",
+    "adsb",
+    "ads-b",
+    "radio",
+    "airplane",
+    "airplanes",
+    "1090",
+    "1090mhz"
+  ],
+  "author": "Thomas Watson <w@tson.dk> (https://twitter.com/wa7son)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/watson/mode-s-aircraft-store/issues"
+  },
+  "homepage": "https://github.com/watson/mode-s-aircraft-store#readme"
+}
