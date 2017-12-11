@@ -4,6 +4,13 @@ A utility library for keeping track of active aircrafts and their
 position based on their Mode S messages as decoded by
 [mode-s-decoder](https://github.com/watson/mode-s-decoder).
 
+Mode S is an aviation transponder interrogation mode used by Secondary
+Surveillance Radar (SSR) and Automatic Dependent Surveillance-Broadcast
+(ADS-B) systems.
+
+For an example of this module in use, see
+[AirplaneJS](https://github.com/watson/airplanejs).
+
 [![Build status](https://travis-ci.org/watson/mode-s-aircraft-store.svg?branch=master)](https://travis-ci.org/watson/mode-s-aircraft-store)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
 
