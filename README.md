@@ -60,7 +60,7 @@ The following options are available:
   from the store if no message from it have been seen (default:
   `120000`)
 
-### `store.addMessage(message)`
+### `store.addMessage(message, [receptionTime])`
 
 Add a new `message` to the `store`.
 
@@ -68,9 +68,13 @@ The `message` must be a decoded Mode S message received in `detect`
 callback from the
 [mode-s-decoder](https://github.com/watson/mode-s-decoder) module.
 
-### `aircrafts = store.getAircrafts()`
+You can provide the original `receptionTime` as a `Date` object if it's different from the current system time.
+
+### `aircrafts = store.getAircrafts([currentTime])`
 
 Return an array of aircrafts currently in the `store`.
+
+If you're not using the store for messages received in real time you can override the current time by passing an optional `Date` object as the first argument.
 
 Each aircraft have the following properties:
 
