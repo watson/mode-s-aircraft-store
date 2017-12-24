@@ -68,13 +68,13 @@ The `message` must be a decoded Mode S message received in `detect`
 callback from the
 [mode-s-decoder](https://github.com/watson/mode-s-decoder) module.
 
-You can provide the original `receptionTime` as a `Date` object if it's different from the current system time.
+You can provide the original `receptionTime` as a Unix timestamp (in milliseconds) if it's different from the current system time.
 
 ### `aircrafts = store.getAircrafts([currentTime])`
 
 Return an array of aircrafts currently in the `store`.
 
-If you're not using the store for messages received in real time you can override the current time by passing an optional `Date` object as the first argument.
+If you're not using the store for messages received in real time you can override the current time by passing an optional Unix timestamp (in milliseconds) as the first argument.
 
 Each aircraft have the following properties:
 
