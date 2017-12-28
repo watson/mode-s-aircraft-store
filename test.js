@@ -73,7 +73,7 @@ test('cpr timeout with system time', function (t) {
   const start = Date.now()
 
   // if more than 10 seconds between messages, lat/lng decoding will be
-  // skipped, so lets simulate a long wait between messages
+  // skipped, so lets simulate a long delay between messages
   const options = {
     refTime: null,
     timeBetweenMessages: 11000
@@ -162,13 +162,24 @@ test('store timeout with reference time', function (t) {
 
 function populateStore (store, options, cb) {
   options.decoder = options.decoder || new Decoder()
-  options.refTime = options.refTime || Date.now()
 
-  for (let i = 0; i < msgs.length; i++) {
-    store.addMessage(
-      options.decoder.parse(msgs[i]),
-      options.refTime + options.timeBetweenMessages * i
-    )
+  if (options.refTime) {
+    for (let i = 0; i < msgs.length; i++) {
+      store.addMessage(
+        options.decoder.parse(msgs[i]),
+        options.refTime + options.timeBetweenMessages * i
+      )
+    }
+  } else {
+    const start = Date.now()
+    const origNow = Date.now
+
+    for (let i = 0; i < msgs.length; i++) {
+      Date.now = () => start + options.timeBetweenMessages * i
+      store.addMessage(options.decoder.parse(msgs[i]))
+    }
+
+    Date.now = origNow
   }
 
   return cb()
