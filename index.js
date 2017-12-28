@@ -12,22 +12,24 @@ function AircraftStore (opts) {
   this._index = {}
 }
 
-AircraftStore.prototype.addMessage = function (msg) {
+AircraftStore.prototype.addMessage = function (msg, receptionTime) {
+  receptionTime = receptionTime || Date.now()
   const aircraft = this._index[msg.icao] = this._index[msg.icao] || new Aircraft()
-  aircraft.update(msg)
+  aircraft.update(msg, receptionTime)
 }
 
-AircraftStore.prototype.getAircrafts = function () {
+AircraftStore.prototype.getAircrafts = function (currentTime) {
+  currentTime = currentTime || Date.now()
   const self = this
-  this._prune()
+  this._prune(currentTime)
   return Object.keys(this._index).map(function (icao) {
     return self._index[icao]
   })
 }
 
-AircraftStore.prototype._prune = function () {
+AircraftStore.prototype._prune = function (currentTime) {
   const self = this
-  const threshold = Date.now() - this._timeout
+  const threshold = currentTime - this._timeout
   Object.keys(this._index).forEach(function (icao) {
     const aircraft = self._index[icao]
     if (aircraft.seen < threshold) {
