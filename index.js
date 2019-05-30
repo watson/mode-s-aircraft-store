@@ -15,6 +15,7 @@ function AircraftStore (opts) {
 AircraftStore.prototype.addMessage = function (msg) {
   const aircraft = this._index[msg.icao] = this._index[msg.icao] || new Aircraft()
   aircraft.update(msg)
+  return aircraft
 }
 
 AircraftStore.prototype.getAircrafts = function () {
